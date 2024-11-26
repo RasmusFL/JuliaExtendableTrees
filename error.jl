@@ -38,7 +38,7 @@ function OOB_error_Classification(forest::Forest)::Float64
     1 - mean(predicted_values .== forest.y)
 end
 
-function OOB_R2_Classification()::Float64
+function OOB_R2_Classification(forest::Forest)::Float64
     predicted_values = OOB_predict_Classification(forest)
     1 - (1 - mean(predicted_values .== forest.y))/(1 - mean(mode(forest.y) .== forest.y))
 end
